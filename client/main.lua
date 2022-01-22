@@ -1,111 +1,15 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local closestDoorKey, closestDoorValue = nil, nil
 local maxDistance = 1.25
-local PlayerData = QBCore.Functions.GetPlayerData()
+local PlayerGang = {}
+local PlayerJob = {}
 local doorFound = false
-
--- Functions
-
-local function DrawText3Ds(x, y, z, text)
-	SetTextScale(0.35, 0.35)
-	SetTextFont(4)
-	SetTextProportional(1)
-	SetTextColour(255, 255, 255, 215)
-	SetTextEntry("STRING")
-	SetTextCentre(true)
-	AddTextComponentString(text)
-	SetDrawOrigin(x,y,z, 0)
-	DrawText(0.0, 0.0)
-	local factor = (string.len(text)) / 370
-	DrawRect(0.0, 0.0+0.0125, 0.017+ factor, 0.03, 0, 0, 0, 75)
-	ClearDrawOrigin()
-end
-
-local function loadAnimDict(dict)
-	RequestAnimDict(dict)
-	while not HasAnimDictLoaded(dict) do
-		Wait(0)
-	end
-end
-
-local function openDoorAnim()
-	loadAnimDict("anim@heists@keycard@")
-	TaskPlayAnim(PlayerPedId(), "anim@heists@keycard@", "exit", 5.0, 1.0, -1, 16, 0, 0, 0, 0)
-	SetTimeout(400, function()
-		ClearPedTasks(PlayerPedId())
-	end)
-end
-
-local function setDoorLocking(doorId, key)
-	doorId.locking = true
-	openDoorAnim()
-	SetTimeout(400, function()
-		doorId.locking = false
-		doorId.locked = not doorId.locked
-		TriggerServerEvent('qb-doorlock:server:updateState', key, doorId.locked)
-	end)
-end
-
-local function lockpickFinish(success)
-	if success then
-		QBCore.Functions.Notify(Lang:t("success.lockpick_success"), 'success', 2500)
-		setDoorLocking(closestDoorValue, closestDoorKey)
-	else
-		QBCore.Functions.Notify(Lang:t("error.lockpick_fail"), 'error', 2500)
-	end
-end
-
-local function IsAuthorized(doorID)
-	if allAuthorized then return true end
-
-	if doorID.authorizedJobs then
-		if doorID.authorizedJobs[PlayerData.job.name] and PlayerData.job.grade.level >= doorID.authorizedJobs[PlayerData.job.name] then
-			return true
-		elseif type(doorID.authorizedJobs[1]) == 'string' then
-			for _, job in pairs(doorID.authorizedJobs) do -- Support for old format
-				if job == PlayerData.job.name then
-					return true
-				end
-			end
-		end
-	end
-
-	if doorID.authorizedGangs then
-		if doorID.authorizedGangs[PlayerData.gang.name] and PlayerData.gang.grade.level >= doorID.authorizedGangs[PlayerData.gang.name] then
-			return true
-		elseif type(doorID.authorizedGangs[1]) == 'string' then
-			for _, gang in pairs(doorID.authorizedGangs) do
-				if gang == PlayerData.gang.name then
-					return true
-				end
-			end
-		end
-	end
-
-	if doorID.authorizedCitizenID then
-		if doorID.authorizedCitizenID[PlayerData.citizenid] then
-			return true
-		elseif type(doorID.authorizedCitizenID[1]) == 'string' then
-			for _, id in pairs(doorID.authorizedCitizenID) do -- Support for old format
-				if id == PlayerData.citizenid then
-					return true
-				end
-			end
-		end
-	end
-
-	return false
-end
-
 -- Events
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
-	TriggerServerEvent("qb-doorlock:server:setupDoors")
-	PlayerData = QBCore.Functions.GetPlayerData()
-end)
-
-RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
-	PlayerData = val
+    TriggerServerEvent("qb-doorlock:server:setupDoors")
+	PlayerJob = QBCore.Functions.GetPlayerData().job
+	PlayerGang = QBCore.Functions.GetPlayerData().gang
 end)
 
 RegisterNetEvent('qb-doorlock:client:setState', function(doorID, state)
@@ -119,6 +23,7 @@ RegisterNetEvent('qb-doorlock:client:setState', function(doorID, state)
 				currentDoor.object = GetClosestObjectOfType(currentDoor.objCoords, 1.0, doorHash, false, false, false)
 			end
 			FreezeEntityPosition(currentDoor.object, current.locked)
+
 			if current.locked and currentDoor.objYaw and GetEntityRotation(currentDoor.object).z ~= currentDoor.objYaw then
 				SetEntityRotation(currentDoor.object, 0.0, 0.0, currentDoor.objYaw, 2, true)
 			end
@@ -133,6 +38,7 @@ RegisterNetEvent('qb-doorlock:client:setState', function(doorID, state)
 			end
 		end
 		FreezeEntityPosition(current.object, current.locked)
+
 		if current.locked and current.objYaw and GetEntityRotation(current.object).z ~= current.objYaw then
 			SetEntityRotation(current.object, 0.0, 0.0, current.objYaw, 2, true)
 		end
@@ -143,40 +49,112 @@ RegisterNetEvent('qb-doorlock:client:setDoors', function(doorList)
 	QB.Doors = doorList
 end)
 
+RegisterNetEvent('QBCore:Client:OnGangUpdate', function(GangInfo)
+    PlayerGang = GangInfo
+end)
+
+RegisterNetEvent('QBCore:Client:OnJobUpdate', function(jobInfo)
+	PlayerJob = jobInfo
+end)
+
 RegisterNetEvent('lockpicks:UseLockpick', function()
 	local pos = GetEntityCoords(PlayerPedId())
-	for k, v in pairs(QB.Doors) do
-		local dist = #(pos - vector3(QB.Doors[k].textCoords.x, QB.Doors[k].textCoords.y, QB.Doors[k].textCoords.z))
-		if dist < 1.5 then
-			if QB.Doors[k].pickable then
-				if QB.Doors[k].locked then
-					QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
+	QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
+		for k, v in pairs(QB.Doors) do
+			local dist = #(pos - vector3(QB.Doors[k].textCoords.x, QB.Doors[k].textCoords.y, QB.Doors[k].textCoords.z))
+			if dist < 1.5 then
+				if QB.Doors[k].pickable then
+					if QB.Doors[k].locked then
 						if hasItem then
 							closestDoorKey, closestDoorValue = k, v
 							TriggerEvent('qb-lockpick:client:openLockpick', lockpickFinish)
 						else
-							QBCore.Functions.Notify(Lang:t("error.screwdriverset_not_found"), "error")
+							QBCore.Functions.Notify("You Dont Have A Screwdriver Set", "error")
 						end
-					end, "screwdriverset")
-					break
+					else
+						QBCore.Functions.Notify('The Door Is Not Locked', 'error', 2500)
+					end
 				else
-					QBCore.Functions.Notify(Lang:t("error.door_not_locked"), 'error', 2500)
-					break
+					QBCore.Functions.Notify('This Door Can Not Be Lockpicked', 'error', 2500)
 				end
-			else
-				QBCore.Functions.Notify(Lang:t("error.door_not_lockpickable"), 'error', 2500)
-				break
 			end
 		end
-	end
+    end, "lockpick")
 end)
+
+-- Functions
+
+function DrawText3Ds(x, y, z, text)
+	SetTextScale(0.35, 0.35)
+    SetTextFont(4)
+    SetTextProportional(1)
+    SetTextColour(255, 255, 255, 215)
+    SetTextEntry("STRING")
+    SetTextCentre(true)
+    AddTextComponentString(text)
+    SetDrawOrigin(x,y,z, 0)
+    DrawText(0.0, 0.0)
+    local factor = (string.len(text)) / 370
+    DrawRect(0.0, 0.0+0.0125, 0.017+ factor, 0.03, 0, 0, 0, 75)
+    ClearDrawOrigin()
+end
+
+function lockpickFinish(success)
+    if success then
+		QBCore.Functions.Notify('Success!', 'success', 2500)
+		setDoorLocking(closestDoorValue, closestDoorKey)
+    else
+        QBCore.Functions.Notify('Failed', 'error', 2500)
+    end
+end
+
+function setDoorLocking(doorId, key)
+	doorId.locking = true
+	openDoorAnim()
+    SetTimeout(400, function()
+		doorId.locking = false
+		doorId.locked = not doorId.locked
+		TriggerServerEvent('qb-doorlock:server:updateState', key, doorId.locked)
+	end)
+end
+
+function loadAnimDict(dict)
+    while (not HasAnimDictLoaded(dict)) do
+        RequestAnimDict(dict)
+        Wait(5)
+    end
+end
+
+function IsAuthorized(doorID)
+	for _,job in pairs(doorID.authorizedJobs) do
+		if job == PlayerJob.name or job == PlayerGang.name then
+			return true
+		end
+	end
+
+	return false
+end
+
+function openDoorAnim()
+    loadAnimDict("anim@heists@keycard@")
+    TaskPlayAnim( PlayerPedId(), "anim@heists@keycard@", "exit", 5.0, 1.0, -1, 16, 0, 0, 0, 0 )
+	SetTimeout(400, function()
+		ClearPedTasks(PlayerPedId())
+	end)
+end
+
+function round(num, numDecimalPlaces)
+	local mult = 10^(numDecimalPlaces or 0)
+	return math.floor(num * mult + 0.5) / mult
+end
 
 -- Threads
 
 CreateThread(function()
 	while true do
-		local sleep = 1000
+		Wait(0)
 		local playerCoords, awayFromDoors = GetEntityCoords(PlayerPedId()), true
+
 		for i = 1, #QB.Doors do
 			local current = QB.Doors[i]
 			local distance
@@ -201,6 +179,7 @@ CreateThread(function()
 							currentDoor.object = GetClosestObjectOfType(currentDoor.objCoords, 1.0, doorHash, false, false, false)
 						end
 						FreezeEntityPosition(currentDoor.object, current.locked)
+
 						if current.locked and currentDoor.objYaw and GetEntityRotation(currentDoor.object).z ~= currentDoor.objYaw then
 							SetEntityRotation(currentDoor.object, 0.0, 0.0, currentDoor.objYaw, 2, true)
 						end
@@ -211,6 +190,7 @@ CreateThread(function()
 						current.object = GetClosestObjectOfType(current.objCoords, 1.0, doorHash, false, false, false)
 					end
 					FreezeEntityPosition(current.object, current.locked)
+
 					if current.locked and current.objYaw and GetEntityRotation(current.object).z ~= current.objYaw then
 						SetEntityRotation(current.object, 0.0, 0.0, current.objYaw, 2, true)
 					end
@@ -218,55 +198,56 @@ CreateThread(function()
 			end
 
 			if distance < maxDistance then
-				local displayText = ""
 				awayFromDoors = false
 				doorFound = true
+				if current.size then
+					size = current.size
+				end
 
 				local isAuthorized = IsAuthorized(current)
 
 				if isAuthorized then
 					if current.locked then
-						displayText = Lang:t("general.locked_button")
+						displayText = "[~g~E~w~] - Locked"
 					elseif not current.locked then
-						displayText = Lang:t("general.unlocked_button")
+						displayText = "[~g~E~w~] - Unlocked"
+
 					end
 				elseif not isAuthorized then
 					if current.locked then
-						displayText = Lang:t("general.locked")
+						displayText = "~r~Locked"
 					elseif not current.locked then
-						displayText = Lang:t("general.unlocked")
+						displayText = "~g~Unlocked"
 					end
 				end
 
 				if current.locking then
 					if current.locked then
-						displayText = Lang:t("general.unlocking")
+						displayText = "~g~Unlocking.."
 					else
-						displayText = Lang:t("general.locking")
+						displayText = "~r~Locking.."
 					end
 				end
 
-				if not current.objCoords then
+				if current.objCoords == nil then
 					current.objCoords = current.textCoords
 				end
 
-				sleep = 0
 				DrawText3Ds(current.objCoords.x, current.objCoords.y, current.objCoords.z, displayText)
+
 				if IsControlJustReleased(0, 38) then
 					if isAuthorized then
 						setDoorLocking(current, i)
 					else
-						QBCore.Functions.Notify(Lang:t("error.not_authorized"), 'error')
+						QBCore.Functions.Notify('Not Authorized', 'error')
 					end
-					sleep = 100
 				end
 			end
 		end
 
 		if awayFromDoors then
 			doorFound = false
-			sleep = 1000
+			Wait(1000)
 		end
-		Wait(sleep)
 	end
 end)
