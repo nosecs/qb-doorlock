@@ -1034,7 +1034,7 @@ QB.Doors = {
 	
 	{	-- Garage Gate
 		objName = -1156020871,
-		objYaw = 210.0,
+		objYaw = 30.0,
 		objCoords  = vector3(1846.11, 3677.96, 33.97),
 		textCoords = vector3(1846.11, 3677.96, 33.97),
 		authorizedJobs = { 'police' },
