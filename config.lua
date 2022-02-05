@@ -1607,6 +1607,88 @@ QB.Doors = {
 		distance = 1.5,
 	},
 
+
+	-- Park Ranger
+
+	{	-- 1st Floor Entrance 1
+		objName = 117185009,
+		objYaw = 180.0,
+		objCoords  = vector3(387.04, 792.81, 187.7),
+		textCoords = vector3(387.04, 792.81, 187.7),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- 1st Floor Entrance 2
+		objName = -117185009,
+		objYaw = 90.0,
+		objCoords  = vector3(388.48, 799.02, 187.65),
+		textCoords = vector3(388.48, 799.02, 187.65),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- Cell Entrance
+		objName = 517369125,
+		objYaw = 270.0,
+		objCoords  = vector3(383.39, 798.88, 187.46),
+		textCoords = vector3(383.39, 798.88, 187.46),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = false,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- Cell 1
+		objName = 517369125,
+		objYaw = 0.0,
+		objCoords  = vector3(382.15, 796.92, 187.46),
+		textCoords = vector3(382.15, 796.92, 187.46),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- Cell 2
+		objName = 517369125,
+		objYaw = 0.0,
+		objCoords  = vector3(377.84, 796.89, 187.46),
+		textCoords = vector3(377.84, 796.89, 187.46),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- 2nd Floor Entrance
+		objName = -117185009,
+		objYaw = 0.0,
+		objCoords  = vector3(379.49, 792.71, 190.49),
+		textCoords = vector3(379.49, 792.71, 190.49),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- Office
+		objName = 1704212348,
+		objYaw = 270.0,
+		objCoords  = vector3(384.54, 796.92, 190.49),
+		textCoords = vector3(384.54, 796.92, 190.49),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+
+
 	
 
 	
