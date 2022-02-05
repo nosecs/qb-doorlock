@@ -1197,6 +1197,119 @@ QB.Doors = {
 		distance = 1.5,
 	},
 
+
+	-- La Mesa PD
+
+	{	-- Front Entrance
+		textCoords = vector3(827.89, -1290.15, 28.24),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 2.5,
+		doors = {
+			{
+				objName = -34368499,
+				objYaw = 90.0,
+				objCoords = vector3(827.96, -1290.86, 28.24)
+			},
+
+			{
+				objName = 277920071,
+				objYaw = 270.0,
+				objCoords = vector3(827.86, -1289.3, 28.24)
+			}
+		}
+	},
+	{	-- Holding Cell
+		objName = 1162089799,
+		objYaw = 270.0,
+		objCoords  = vector3(834.33, -1296.71, 28.24),
+		textCoords = vector3(834.33, -1296.71, 28.24),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- Evidence
+		objName = 272264766,
+		objYaw = 0.0,
+		objCoords  = vector3(847.08, -1310.07, 28.24),
+		textCoords = vector3(847.08, -1310.07, 28.24),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- Lockers 1
+		objName = -1213101062,
+		objYaw = 0.0,
+		objCoords  = vector3(854.11, -1310.14, 28.24),
+		textCoords = vector3(854.11, -1310.14, 28.24),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- Lockers 2
+		objName = -1213101062,
+		objYaw = 270.0,
+		objCoords  = vector3(855.76, -1313.8, 28.24),
+		textCoords = vector3(855.76, -1313.8, 28.24),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- Back Entrance
+		objName = -1339729155,
+		objYaw = 0.0,
+		objCoords  = vector3(858.28, -1320.02, 28.25),
+		textCoords = vector3(858.28, -1320.02, 28.25),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- Archives
+		objName = 539497004,
+		objYaw = 0.0,
+		objCoords  = vector3(858.14, -1291.39, 28.24),
+		textCoords = vector3(858.14, -1291.39, 28.24),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- Observation
+		objName = -1011300766,
+		objYaw = 90.0,
+		objCoords  = vector3(840.06, -1280.3, 28.24),
+		textCoords = vector3(840.06, -1280.3, 28.24),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+	{	-- Interrogation
+		objName = -1189294593,
+		objYaw = 270.0,
+		objCoords  = vector3(840.14, -1282.41, 28.24),
+		textCoords = vector3(840.14, -1282.41, 28.24),
+		authorizedJobs = { 'police' },
+		locking = false,
+		locked = true,
+		pickable = true,
+		distance = 1.5,
+	},
+
 	
 
 	
