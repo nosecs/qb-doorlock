@@ -1612,7 +1612,7 @@ QB.Doors = {
 
 	{	-- 1st Floor Entrance 1
 		objName = -117185009,
-		objYaw = 180.0,
+		objYaw = 0.0,
 		objCoords  = vector3(387.04, 792.81, 187.7),
 		textCoords = vector3(387.04, 792.81, 187.7),
 		authorizedJobs = { 'police' },
