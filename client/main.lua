@@ -191,7 +191,7 @@ CreateThread(function()
 				maxDistance = current.distance
 			end
 
-			if distance < 3.0 and not doorFound then
+			if distance < 6.0 and not doorFound then
 				awayFromDoors = false
 				if current.doors then
 					for a = 1, #current.doors do
