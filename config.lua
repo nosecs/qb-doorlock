@@ -1289,7 +1289,7 @@ QB.Doors = {
 	},
 	{	-- Observation
 		objName = -1011300766,
-		objYaw = 90.0,
+		objYaw = 270.0,
 		objCoords  = vector3(840.06, -1280.3, 28.24),
 		textCoords = vector3(840.06, -1280.3, 28.24),
 		authorizedJobs = { 'police' },
@@ -1300,7 +1300,7 @@ QB.Doors = {
 	},
 	{	-- Interrogation
 		objName = -1189294593,
-		objYaw = 270.0,
+		objYaw = 90.0,
 		objCoords  = vector3(840.14, -1282.41, 28.24),
 		textCoords = vector3(840.14, -1282.41, 28.24),
 		authorizedJobs = { 'police' },
