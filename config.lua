@@ -1234,7 +1234,7 @@ QB.Doors = {
 	},
 	{	-- Evidence
 		objName = 272264766,
-		objYaw = 0.0,
+		objYaw = 180.0,
 		objCoords  = vector3(847.08, -1310.07, 28.24),
 		textCoords = vector3(847.08, -1310.07, 28.24),
 		authorizedJobs = { 'police' },
@@ -1278,7 +1278,7 @@ QB.Doors = {
 	},
 	{	-- Archives
 		objName = 539497004,
-		objYaw = 180.0,
+		objYaw = 0.0,
 		objCoords  = vector3(858.14, -1291.39, 28.24),
 		textCoords = vector3(858.14, -1291.39, 28.24),
 		authorizedJobs = { 'police' },
