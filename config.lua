@@ -1044,7 +1044,7 @@ QB.Doors = {
 		distance = 1.5,
 	},
 	{	-- Main Entrance
-		textCoords = vector3(-450.87, 6004.13, 32.29),
+		textCoords = vector3(1836.25, 3673.87, 34.19),
 		authorizedJobs = { 'police' },
 		locking = false,
 		locked = false,
@@ -1066,7 +1066,7 @@ QB.Doors = {
 	},
 	{	-- Lobby Office
 		objName = -1264811159,
-		objYaw = 120.0,
+		objYaw = 300.0,
 		objCoords  = vector3(1830.2, 3673.22, 34.19),
 		textCoords = vector3(1830.2, 3673.22, 34.19),
 		authorizedJobs = { 'police' },
@@ -1077,7 +1077,7 @@ QB.Doors = {
 	},
 	{	-- Lockers
 		objName = 1364638935,
-		objYaw = 300.0,
+		objYaw = 120.0,
 		objCoords  = vector3(1837.61, 3677.57, 34.19),
 		textCoords = vector3(1837.61, 3677.57, 34.19),
 		authorizedJobs = { 'police' },
@@ -1088,7 +1088,7 @@ QB.Doors = {
 	},
 	{	-- Armory
 		objName = -1264811159,
-		objYaw = 210.0,
+		objYaw = 30.0,
 		objCoords  = vector3(1839.43, 3683.09, 34.19),
 		textCoords = vector3(1839.43, 3683.09, 34.19),
 		authorizedJobs = { 'police' },
@@ -1099,7 +1099,7 @@ QB.Doors = {
 	},
 	{	-- Hallway
 		objName = -1264811159,
-		objYaw = 30.0,
+		objYaw = 210.0,
 		objCoords  = vector3(1830.19, 3676.26, 34.19),
 		textCoords = vector3(1830.19, 3676.26, 34.19),
 		authorizedJobs = { 'police' },
@@ -1121,7 +1121,7 @@ QB.Doors = {
 	},
 	{	-- Observation
 		objName = -1264811159,
-		objYaw = 120.0,
+		objYaw = 300.0,
 		objCoords  = vector3(1814.45, 3669.07, 34.19),
 		textCoords = vector3(1814.45, 3669.07, 34.19),
 		authorizedJobs = { 'police' },
@@ -1132,7 +1132,7 @@ QB.Doors = {
 	},
 	{	-- Interrogation
 		objName = 1364638935,
-		objYaw = 120.0,
+		objYaw = 300.0,
 		objCoords  = vector3(1812.57, 3672.19, 34.19),
 		textCoords = vector3(1812.57, 3672.19, 34.19),
 		authorizedJobs = { 'police' },
@@ -1187,7 +1187,7 @@ QB.Doors = {
 	},
 	{	-- Archives
 		objName = -1264811159,
-		objYaw = 120.0,
+		objYaw = 300.0,
 		objCoords  = vector3(1828.78, 3679.63, 38.86),
 		textCoords = vector3(1828.78, 3679.63, 38.86),
 		authorizedJobs = { 'police' },
