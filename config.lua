@@ -1034,7 +1034,7 @@ QB.Doors = {
 	
 	{	-- Garage Gate
 		objName = -1156020871,
-		objYaw = 300.0,
+		objYaw = 210.0,
 		objCoords  = vector3(1846.11, 3677.96, 33.97),
 		textCoords = vector3(1846.11, 3677.96, 33.97),
 		authorizedJobs = { 'police' },
@@ -1053,20 +1053,20 @@ QB.Doors = {
 		doors = {
 			{
 				objName = -1501157055,
-				objYaw = 300.0,
+				objYaw = 210.0,
 				objCoords = vector3(1835.58, 3673.67, 34.19)
 			},
 
 			{
 				objName = -1501157055,
-				objYaw = 120.0,
+				objYaw = 30.0,
 				objCoords = vector3(1836.88, 3674.47, 34.2)
 			}
 		}
 	},
 	{	-- Lobby Office
 		objName = -1264811159,
-		objYaw = 210.0,
+		objYaw = 120.0,
 		objCoords  = vector3(1830.2, 3673.22, 34.19),
 		textCoords = vector3(1830.2, 3673.22, 34.19),
 		authorizedJobs = { 'police' },
@@ -1077,7 +1077,7 @@ QB.Doors = {
 	},
 	{	-- Lockers
 		objName = 1364638935,
-		objYaw = 30.0,
+		objYaw = 300.0,
 		objCoords  = vector3(1837.61, 3677.57, 34.19),
 		textCoords = vector3(1837.61, 3677.57, 34.19),
 		authorizedJobs = { 'police' },
@@ -1088,7 +1088,7 @@ QB.Doors = {
 	},
 	{	-- Armory
 		objName = -1264811159,
-		objYaw = 300.0,
+		objYaw = 210.0,
 		objCoords  = vector3(1839.43, 3683.09, 34.19),
 		textCoords = vector3(1839.43, 3683.09, 34.19),
 		authorizedJobs = { 'police' },
@@ -1099,7 +1099,7 @@ QB.Doors = {
 	},
 	{	-- Hallway
 		objName = -1264811159,
-		objYaw = 120.0,
+		objYaw = 30.0,
 		objCoords  = vector3(1830.19, 3676.26, 34.19),
 		textCoords = vector3(1830.19, 3676.26, 34.19),
 		authorizedJobs = { 'police' },
@@ -1110,7 +1110,7 @@ QB.Doors = {
 	},
 	{	-- Back entrance
 		objName = -1501157055,
-		objYaw = 120.0,
+		objYaw = 30.0,
 		objCoords  = vector3(1823.35, 3680.77, 34.19),
 		textCoords = vector3(1823.35, 3680.77, 34.19),
 		authorizedJobs = { 'police' },
@@ -1121,7 +1121,7 @@ QB.Doors = {
 	},
 	{	-- Observation
 		objName = -1264811159,
-		objYaw = 210.0,
+		objYaw = 120.0,
 		objCoords  = vector3(1814.45, 3669.07, 34.19),
 		textCoords = vector3(1814.45, 3669.07, 34.19),
 		authorizedJobs = { 'police' },
@@ -1132,7 +1132,7 @@ QB.Doors = {
 	},
 	{	-- Interrogation
 		objName = 1364638935,
-		objYaw = 210.0,
+		objYaw = 120.0,
 		objCoords  = vector3(1812.57, 3672.19, 34.19),
 		textCoords = vector3(1812.57, 3672.19, 34.19),
 		authorizedJobs = { 'police' },
@@ -1143,7 +1143,7 @@ QB.Doors = {
 	},
 	{	-- Cell Entrance
 		objName = 2010487154,
-		objYaw = 120.0,
+		objYaw = 30.0,
 		objCoords  = vector3(1812.94, 3674.66, 34.23),
 		textCoords = vector3(1812.94, 3674.66, 34.23),
 		authorizedJobs = { 'police' },
@@ -1154,7 +1154,7 @@ QB.Doors = {
 	},
 	{	-- Cell 1
 		objName = 2010487154,
-		objYaw = 210.0,
+		objYaw = 120.0,
 		objCoords  = vector3(1810.41, 3676.04, 34.19),
 		textCoords = vector3(1810.41, 3676.04, 34.19),
 		authorizedJobs = { 'police' },
@@ -1165,7 +1165,7 @@ QB.Doors = {
 	},
 	{	-- Cell 2
 		objName = 2010487154,
-		objYaw = 210.0,
+		objYaw = 120.0,
 		objCoords  = vector3(1808.96, 3678.46, 34.19),
 		textCoords = vector3(1808.96, 3678.46, 34.19),
 		authorizedJobs = { 'police' },
@@ -1176,7 +1176,7 @@ QB.Doors = {
 	},
 	{	-- Cell 3
 		objName = 2010487154,
-		objYaw = 210.0,
+		objYaw = 120.0,
 		objCoords  = vector3(1807.38, 3681.09, 34.19),
 		textCoords = vector3(1807.38, 3681.09, 34.19),
 		authorizedJobs = { 'police' },
@@ -1187,7 +1187,7 @@ QB.Doors = {
 	},
 	{	-- Archives
 		objName = -1264811159,
-		objYaw = 210.0,
+		objYaw = 120.0,
 		objCoords  = vector3(1828.78, 3679.63, 38.86),
 		textCoords = vector3(1828.78, 3679.63, 38.86),
 		authorizedJobs = { 'police' },
