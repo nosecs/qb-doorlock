@@ -1234,7 +1234,7 @@ QB.Doors = {
 	},
 	{	-- Evidence
 		objName = 272264766,
-		objYaw = 180.0,
+		objYaw = 0.0,
 		objCoords  = vector3(847.08, -1310.07, 28.24),
 		textCoords = vector3(847.08, -1310.07, 28.24),
 		authorizedJobs = { 'police' },
@@ -1245,7 +1245,7 @@ QB.Doors = {
 	},
 	{	-- Lockers 1
 		objName = -1213101062,
-		objYaw = 180.0,
+		objYaw = 0.0,
 		objCoords  = vector3(854.11, -1310.14, 28.24),
 		textCoords = vector3(854.11, -1310.14, 28.24),
 		authorizedJobs = { 'police' },
@@ -1256,7 +1256,7 @@ QB.Doors = {
 	},
 	{	-- Lockers 2
 		objName = -1213101062,
-		objYaw = 90.0,
+		objYaw = 270.0,
 		objCoords  = vector3(855.76, -1313.8, 28.24),
 		textCoords = vector3(855.76, -1313.8, 28.24),
 		authorizedJobs = { 'police' },
@@ -1267,7 +1267,7 @@ QB.Doors = {
 	},
 	{	-- Back Entrance
 		objName = -1339729155,
-		objYaw = 180.0,
+		objYaw = 0.0,
 		objCoords  = vector3(858.28, -1320.02, 28.25),
 		textCoords = vector3(858.28, -1320.02, 28.25),
 		authorizedJobs = { 'police' },
