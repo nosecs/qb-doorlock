@@ -1210,20 +1210,20 @@ QB.Doors = {
 		doors = {
 			{
 				objName = -34368499,
-				objYaw = 90.0,
+				objYaw = 270.0,
 				objCoords = vector3(827.96, -1290.86, 28.24)
 			},
 
 			{
 				objName = 277920071,
-				objYaw = 270.0,
+				objYaw = 90.0,
 				objCoords = vector3(827.86, -1289.3, 28.24)
 			}
 		}
 	},
 	{	-- Holding Cell
 		objName = 1162089799,
-		objYaw = 270.0,
+		objYaw = 90.0,
 		objCoords  = vector3(834.33, -1296.71, 28.24),
 		textCoords = vector3(834.33, -1296.71, 28.24),
 		authorizedJobs = { 'police' },
@@ -1234,7 +1234,7 @@ QB.Doors = {
 	},
 	{	-- Evidence
 		objName = 272264766,
-		objYaw = 0.0,
+		objYaw = 180.0,
 		objCoords  = vector3(847.08, -1310.07, 28.24),
 		textCoords = vector3(847.08, -1310.07, 28.24),
 		authorizedJobs = { 'police' },
@@ -1245,7 +1245,7 @@ QB.Doors = {
 	},
 	{	-- Lockers 1
 		objName = -1213101062,
-		objYaw = 0.0,
+		objYaw = 180.0,
 		objCoords  = vector3(854.11, -1310.14, 28.24),
 		textCoords = vector3(854.11, -1310.14, 28.24),
 		authorizedJobs = { 'police' },
@@ -1256,7 +1256,7 @@ QB.Doors = {
 	},
 	{	-- Lockers 2
 		objName = -1213101062,
-		objYaw = 270.0,
+		objYaw = 90.0,
 		objCoords  = vector3(855.76, -1313.8, 28.24),
 		textCoords = vector3(855.76, -1313.8, 28.24),
 		authorizedJobs = { 'police' },
@@ -1267,7 +1267,7 @@ QB.Doors = {
 	},
 	{	-- Back Entrance
 		objName = -1339729155,
-		objYaw = 0.0,
+		objYaw = 180.0,
 		objCoords  = vector3(858.28, -1320.02, 28.25),
 		textCoords = vector3(858.28, -1320.02, 28.25),
 		authorizedJobs = { 'police' },
@@ -1278,7 +1278,7 @@ QB.Doors = {
 	},
 	{	-- Archives
 		objName = 539497004,
-		objYaw = 0.0,
+		objYaw = 180.0,
 		objCoords  = vector3(858.14, -1291.39, 28.24),
 		textCoords = vector3(858.14, -1291.39, 28.24),
 		authorizedJobs = { 'police' },
@@ -1296,7 +1296,7 @@ QB.Doors = {
 		locking = false,
 		locked = true,
 		pickable = true,
-		distance = 1.5,
+		distance = 1.0,
 	},
 	{	-- Interrogation
 		objName = -1189294593,
@@ -1307,7 +1307,7 @@ QB.Doors = {
 		locking = false,
 		locked = true,
 		pickable = true,
-		distance = 1.5,
+		distance = 1.0,
 	},
 
 	
