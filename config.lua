@@ -1296,7 +1296,7 @@ QB.Doors = {
 		locking = false,
 		locked = true,
 		pickable = true,
-		distance = 1.0,
+		distance = 1.5,
 	},
 	{	-- Interrogation
 		objName = -1189294593,
@@ -1307,7 +1307,7 @@ QB.Doors = {
 		locking = false,
 		locked = true,
 		pickable = true,
-		distance = 1.0,
+		distance = 1.5,
 	},
 
 	
